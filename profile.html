@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivox - Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #000; color: #fff; margin: 0; font-family: sans-serif; }
+        .profile-container { padding: 60px 0; }
+        .header { display: flex; align-items: center; justify-content: space-between; padding: 15px; }
+        .dp-box { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; border: 2px solid #333; }
+        .dp-box img { width: 100%; height: 100%; object-fit: cover; }
+        .stats { display: flex; gap: 20px; text-align: center; }
+        .stats div { font-weight: bold; }
+        .bio-section { padding: 15px; }
+        .name { font-weight: bold; font-size: 16px; }
+        .bio { font-size: 14px; color: #ccc; margin-top: 5px; }
+        .btn-edit { width: 90%; margin: 10px auto; display: block; background: #262626; color: #fff; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
+        
+        /* Modal Styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; }
+        .modal-content { background: #1c1c1c; padding: 20px; border-radius: 10px; width: 80%; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0; background: #333; border: none; color: white; border-radius: 5px; box-sizing: border-box; }
+        .btn-save { background: #0095f6; color: white; border: none; padding: 10px; width: 100%; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="header">
+        <div class="dp-box"><img id="profilePic" src="https://picsum.photos/id/1025/150/150" alt="DP"></div>
+        <div class="stats">
+            <div>18<br><span style="font-size:12px;color:#888;">posts</span></div>
+            <div>4.5k<br><span style="font-size:12px;color:#888;">followers</span></div>
+            <div>382<br><span style="font-size:12px;color:#888;">following</span></div>
+        </div>
+    </div>
+    <div class="bio-section">
+        <div class="name" id="displayName">Alex Rivoxer</div>
+        <div class="bio" id="displayBio">Code | Design | Vibes 🚀<br>Building Rivox Web App! ✨</div>
+    </div>
+    <button class="btn-edit" onclick="openModal()">Edit Profile</button>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-content">
+        <h3>Edit Profile</h3>
+        <input type="text" id="editName" placeholder="Name">
+        <input type="text" id="editDpUrl" placeholder="Paste Image URL for DP">
+        <textarea id="editBio" rows="3" placeholder="Bio"></textarea>
+        <button class="btn-save" onclick="saveChanges()">Save Changes</button>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('myModal').style.display = 'flex';
+        document.getElementById('editName').value = document.getElementById('displayName').innerText;
+        document.getElementById('editBio').value = document.getElementById('displayBio').innerText;
+    }
+    function saveChanges() {
+        document.getElementById('displayName').innerText = document.getElementById('editName').value;
+        document.getElementById('displayBio').innerText = document.getElementById('editBio').value;
+        let newUrl = document.getElementById('editDpUrl').value;
+        if(newUrl) document.getElementById('profilePic').src = newUrl;
+        document.getElementById('myModal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
