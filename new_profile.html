@@ -1,59 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding: 20px; }
-        
-        .profile-container { max-width: 400px; margin: 0 auto; text-align: center; }
-        
-        /* DP Section */
-        .dp-box { position: relative; width: 120px; height: 120px; margin: 0 auto 20px auto; }
-        .dp { width: 120px; height: 120px; border-radius: 50%; background: #333; border: 2px solid #555; object-fit: cover; }
+        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 70px; }
+        .profile-container { max-width: 400px; margin: 0 auto; padding: 20px; text-align: center; }
+        .dp-box { width: 120px; height: 120px; margin: 0 auto 20px; }
+        .dp { width: 100%; height: 100%; border-radius: 50%; background: #333; object-fit: cover; border: 2px solid #555; }
         .change-btn { margin-top: 10px; background: none; border: none; color: #0095f6; font-weight: bold; cursor: pointer; }
-        
-        /* Form Fields */
-        .info-section { text-align: left; }
-        label { font-size: 14px; color: #aaa; }
-        .input-field { width: 100%; background: #111; border: 1px solid #333; color: white; padding: 12px; margin: 8px 0 20px 0; border-radius: 5px; box-sizing: border-box; }
-        .save-btn { background: #0095f6; color: white; padding: 12px; width: 100%; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        .info-section { text-align: left; margin-top: 20px; }
+        .input-field { width: 100%; background: #111; border: 1px solid #333; color: white; padding: 12px; margin: 8px 0; border-radius: 8px; box-sizing: border-box; }
+        .save-btn { background: #0095f6; color: white; padding: 12px; width: 100%; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="profile-container">
-        <!-- DP Section -->
-        <div class="dp-box">
-            <img id="dpImage" src="" class="dp" alt="DP">
-            <!-- Ye line camera/gallery kholne ke liye hai -->
-            <input type="file" id="dpInput" accept="image/*" capture="user" style="display:none" onchange="loadDP(event)">
-            <button class="change-btn" onclick="document.getElementById('dpInput').click()">Change DP</button>
-        </div>
-
-        <!-- Info Fields -->
-        <div class="info-section">
-            <label>Name</label>
-            <input type="text" class="input-field" placeholder="Name">
-            
-            <label>Username</label>
-            <input type="text" class="input-field" placeholder="Username">
-            
-            <label>Bio</label>
-            <textarea class="input-field" rows="3" placeholder="Bio"></textarea>
-            
-            <label>Link</label>
-            <input type="url" class="input-field" placeholder="Website Link">
-            
-            <button class="save-btn">Save Profile</button>
-        </div>
+<div class="profile-container">
+    <div class="dp-box">
+        <img id="dpImage" src="" class="dp" alt="DP">
+        <input type="file" id="dpInput" accept="image/*" style="display:none" onchange="loadDP(event)">
+        <button class="change-btn" onclick="document.getElementById('dpInput').click()">Change Photo</button>
     </div>
 
-    <script>
-        function loadDP(event) {
-            const image = document.getElementById('dpImage');
-            image.src = URL.createObjectURL(event.target.files[0]);
-        }
-    </script>
+    <div class="info-section">
+        <label>Name</label>
+        <input type="text" class="input-field" placeholder="Name">
+        <label>Username</label>
+        <input type="text" class="input-field" placeholder="Username">
+        <label>Bio</label>
+        <textarea class="input-field" rows="3" placeholder="Bio"></textarea>
+        <button class="save-btn">Save Profile</button>
+    </div>
+</div>
+
+<nav class="bottom-nav" style="position: fixed; bottom: 0; width: 100%; height: 60px; background: #000; border-top: 1px solid #333; display: flex; justify-content: space-around; align-items: center; z-index: 999;">
+    <a href="feed_new.html" style="color: #fff; text-decoration: none; font-size: 24px;">🏠</a>
+    <a href="reels.html" style="color: #fff; text-decoration: none; font-size: 24px;">🎬</a>
+    <a href="upload.html" style="color: #fff; text-decoration: none; font-size: 24px;">➕</a>
+    <a href="chat.html" style="color: #fff; text-decoration: none; font-size: 24px;">💬</a>
+    <a href="new_profile.html" style="color: #fff; text-decoration: none; font-size: 24px;">👤</a>
+</nav>
+
+<script>
+    function loadDP(event) {
+        const image = document.getElementById('dpImage');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
+
 </body>
 </html>
