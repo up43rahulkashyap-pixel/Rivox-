@@ -1,37 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rivox</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="logo.png">
-
-
+    <title>Notifications - Rivox</title>
     <style>
-        * { box-sizing: border-box; }
-        body { background: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding-bottom: 70px; }
+        body { background: #000; color: #fff; font-family: sans-serif; margin: 0; padding-bottom: 70px; }
+        .header { padding: 15px; border-bottom: 1px solid #222; text-align: center; font-size: 20px; font-weight: bold; }
+        .content { padding: 20px; }
         
-        /* Header */
-        .header { padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-        .logo { font-size: 24px; font-weight: bold; font-style: italic; }
-        .icon { font-size: 24px; cursor: pointer; }
-
-        /* Stories */
-        .stories { display: flex; gap: 15px; padding: 15px; overflow-x: auto; border-bottom: 1px solid #222; }
-        .story { display: flex; flex-direction: column; align-items: center; gap: 5px; min-width: 65px; position: relative; }
-        .story-ring { width: 65px; height: 65px; border-radius: 50%; border: 2px solid #e1306c; padding: 2px; }
-        .story-dp { width: 100%; height: 100%; border-radius: 50%; background: #444; }
-        .add-story { position: absolute; bottom: 18px; right: 5px; background: #0095f6; width: 20px; height: 20px; border-radius: 50%; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; }
-
-        /* Post */
-        .post { margin-top: 10px; border-bottom: 1px solid #222; }
-        .post-header { padding: 10px; display: flex; align-items: center; gap: 10px; }
-        .post-dp { width: 35px; height: 35px; border-radius: 50%; background: #555; }
-        .post-img { width: 100%; height: 350px; background: #222; }
-        .actions { padding: 10px; display: flex; gap: 15px; font-size: 24px; }
-
-        /* Nav Bar */
+        /* Nav Bar wahi hai jo main page par hai */
         .nav { position: fixed; bottom: 0; width: 100%; height: 60px; background: #000; border-top: 1px solid #333; display: flex; justify-content: space-around; align-items: center; }
         .nav a { color: #fff; text-decoration: none; font-size: 26px; }
         .dp-circle { width: 28px; height: 28px; background: #555; border-radius: 50%; border: 1px solid #fff; }
@@ -39,34 +17,18 @@
 </head>
 <body>
 
-    <div class="header">
-        <div class="icon"><a href="create.html" style="color:white; text-decoration:none;">➕</a></div>
-        <div class="logo">Rivox</div>
-        <div class="icon"><a href="notifications.html" style="color:white; text-decoration:none;">💭</a></div>
+    <div class="header">Notifications</div>
+
+    <div class="content">
+        <p>Yahan aapki notifications dikhengi.</p>
     </div>
 
-    <div class="stories">
-        <div class="story">
-            <div class="story-ring"><div class="story-dp"></div></div>
-            <div class="add-story">+</div>
-            <div style="font-size: 11px;">Your Story</div>
-        </div>
-        <div class="story"><div class="story-ring"><div class="story-dp"></div></div><div style="font-size: 11px;">Friend 1</div></div>
+    <div class="nav">
+        <a href="feed_new.html">⌂</a>
+        <a href="notifications.html">💭</a>
+        <a href="chat.html">✉</a>
+        <a href="new_profile.html"><div class="dp-circle"></div></a>
     </div>
-
-    <div class="post">
-        <div class="post-header"><div class="post-dp"></div> <strong>Username</strong></div>
-        <div class="post-img"></div>
-        <div class="actions"><span>❤️</span> <span>💬</span> <span>✈️</span></div>
-    </div>
-<div class="nav">
-    <a href="feed_new.html">⌂</a>
-    <a href="notifications.html">💭</a> 
-    <a href="chat.html">✉</a>
-    <a href="new_profile.html"><div class="dp-circle"></div></a>
-</div>
-
-  
 
 </body>
 </html>
