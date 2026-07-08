@@ -1,169 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rivox - Reels</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Reels ke liye special vertical scroll setup */
-        .reels-container {
-            height: calc(100vh - 55px);
-            overflow-y: scroll;
-            scroll-snap-type: y mandatory;
-        }
-        .reels-container::-webkit-scrollbar {
-            display: none;
-        }
-        .reel-video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            scroll-snap-align: start;
-            background-color: #000;
-        }
-        .reel-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .reel-actions {
-            position: absolute;
-            bottom: 40px;
-            right: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-            z-index: 10;
-        }
-        .reel-action-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 24px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-        .reel-action-item span {
-            font-size: 12px;
-            margin-top: 5px;
-            font-weight: 600;
-        }
-        .reel-info {
-            position: absolute;
-            bottom: 30px;
-            left: 15px;
-            z-index: 10;
-            max-width: 75%;
-        }
-        .reel-user {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-        .reel-user img {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        }
-        .reel-user .username {
-            font-weight: 600;
-            font-size: 14px;
-        }
-        .reel-caption {
-            font-size: 13px;
-            line-height: 1.4;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-        }
-    </style>
-</head>
-<body>
+<div class="reel-actions">
+    <div class="reel-action-item">
+        <i class="fa-regular fa-heart"></i>
+        <span>45.2K</span>
+    </div>
+    <div class="reel-action-item">
+        <i class="fa-regular fa-comment"></i>
+        <span>1,120</span>
+    </div>
+    <div class="reel-action-item">
+        <i class="fa-regular fa-bookmark"></i> </div>
+    <div class="reel-action-item">
+        <i class="fa-regular fa-paper-plane"></i> </div>
+</div>
 
-    <main class="reels-container">
-        
-        <section class="reel-video-container">
-            <video class="reel-video" src="https://assets.mixkit.co/videos/preview/mixkit-tree-with-yellow-flowers-4710-large.mp4" loop autoplay muted playsinline></video>
-            
-            <div class="reel-actions">
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>45.2K</span>
-                </div>
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-comment"></i>
-                    <span>1,120</span>
-                </div>
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-paper-plane"></i>
-                </div>
-            </div>
-
-            <div class="reel-info">
-                <div class="reel-user">
-                    <img src="https://picsum.photos/id/1025/40/40" alt="User">
-                    <span class="username">alex_rivox</span>
-                </div>
-                <p class="reel-caption">Beautiful nature vibes today! 🍂✨ #nature #rivox</p>
-            </div>
-        </section>
-
-        <section class="reel-video-container">
-            <video class="reel-video" src="https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-ocean-near-a-cliff-43152-large.mp4" loop muted playsinline></video>
-            
-            <div class="reel-actions">
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-heart"></i>
-                    <span>89.7K</span>
-                </div>
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-comment"></i>
-                    <span>3,450</span>
-                </div>
-                <div class="reel-action-item">
-                    <i class="fa-regular fa-paper-plane"></i>
-                </div>
-            </div>
-
-            <div class="reel-info">
-                <div class="reel-user">
-                    <img src="https://picsum.photos/id/1012/40/40" alt="User">
-                    <span class="username">ocean_drive</span>
-                </div>
-                <p class="reel-caption">Chasing the blue ocean waves 🌊💙 #travel #peace</p>
-            </div>
-        </section>
-
-    </main>
-
-    <nav class="bottom-nav">
-        <a href="home.html" class="nav-item"><i class="fa-solid fa-house"></i></a>
-        <a href="reels.html" class="nav-item" style="color: #fff;"><i class="fa-solid fa-clapperboard"></i></a>
-        <a href="upload.html" class="nav-item"><i class="fa-solid fa-square-plus"></i></a>
-        <a href="chat.html" class="nav-item"><i class="fa-solid fa-message"></i></a>
-        <a href="profile.html" class="nav-item"><i class="fa-solid fa-user"></i></a>
-    </nav>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const container = document.querySelector('.reels-container');
-            const videos = document.querySelectorAll('.reel-video');
-
-            const observerOptions = { root: container, threshold: 0.6 };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.play().catch(err => console.log(err));
-                    } else {
-                        entry.target.pause();
-                    }
-                });
-            }, observerOptions);
-
-            videos.forEach(video => observer.observe(video));
-        });
-    </script>
-</body>
-</html>
+<style>
+    /* Action items ko aur behtar dikhane ke liye */
+    .reel-actions {
+        position: absolute;
+        bottom: 80px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        z-index: 10;
+    }
+    .reel-action-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 26px; /* Icon thode bade kiye */
+        color: white;
+        cursor: pointer;
+    }
+    .reel-action-item span {
+        font-size: 12px;
+        margin-top: 5px;
+        font-weight: 600;
+    }
+</style>
